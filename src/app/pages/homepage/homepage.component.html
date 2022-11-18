@@ -1,0 +1,28 @@
+<div class="container">
+  <p *ngIf="connectionState" class="fs-3 text-success">Connexion ouverte</p>
+  <p *ngIf="!connectionState" class="fs-3 text-danger">Connexion fermée</p>
+  <button class="btn btn-primary m-3" (click)="toggleWilderSubscription()">
+    ON / OFF
+  </button>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let wilder of wilders" class="col-12 mb-3">
+      <div class="card" style="width: 36rem">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ wilder.firstname }} {{ wilder.lastname }}
+          </h5>
+          <h6 class="card-subtitle text-muted">
+            originaire de {{ wilder.city }}
+          </h6>
+          <p>
+            inscrit(e) à la Wild Code School le
+            {{ wilder.createdAt | date: "dd/MM/yyyy à hh:mm:ss" }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
